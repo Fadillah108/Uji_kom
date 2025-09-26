@@ -1,0 +1,163 @@
+@import 'tailwindcss';
+
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* Global Scroll Fix */
+html {
+    overflow-x: hidden;
+}
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Shared Dashboard UI Components */
+:root {
+    --brand: #4f46e5; /* indigo-600 */
+    --brand-700: #4338ca;
+    --accent: #9333ea; /* purple-600 */
+    --success: #10b981; /* emerald-500 */
+    --warning: #f59e0b; /* amber-500 */
+    --info: #3b82f6;    /* blue-500 */
+    --danger: #ef4444;  /* red-500 */
+    --surface: #ffffff;
+    --muted: #6b7280;   /* gray-500 */
+    --border: #eef2f7;  /* light gray */
+}
+
+/* Card */
+.card {
+    background: var(--surface);
+    border-radius: 1rem; /* 16px */
+    box-shadow: 0 10px 25px -10px rgba(2, 6, 23, .15);
+    border: 1px solid var(--border);
+}
+.card-header {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+}
+.card-header--brand {
+    background: linear-gradient(90deg, var(--brand), var(--accent));
+    color: #fff;
+    border-bottom: none;
+}
+.card-body { padding: 1.5rem; }
+
+/* Buttons */
+.btn { display:inline-flex; align-items:center; gap:.5rem; padding:.65rem 1rem; border-radius:.75rem; font-weight:600; }
+.btn:focus { outline: 2px solid transparent; outline-offset: 2px; }
+.btn-primary { background: var(--brand); color:#fff; }
+.btn-primary:hover { background: var(--brand-700); }
+.btn-outline { border:1px solid var(--border); background:#fff; color:#111827; }
+.btn-outline:hover { background:#f9fafb; }
+.btn-danger { background: var(--danger); color:#fff; }
+
+/* Badges */
+.badge { display:inline-flex; align-items:center; padding:.3rem .6rem; border-radius:9999px; font-size:.75rem; font-weight:700; letter-spacing:.02em; }
+.badge-success { background:#d1fae5; color:#065f46; }
+.badge-info { background:#dbeafe; color:#1e40af; }
+.badge-warning { background:#fef3c7; color:#92400e; }
+
+/* Table */
+.table { width:100%; border-collapse: separate; border-spacing: 0; }
+.table thead th { text-align:left; font-weight:600; color:#6b7280; background:#fafafa; border-bottom:1px solid var(--border); padding:.85rem 1rem; }
+.table tbody td { padding:.85rem 1rem; border-bottom:1px solid var(--border); }
+.table tbody tr:hover { background:#fafafa; }
+
+/* Stat cards */
+.stat-card { color:#fff; border-radius:1rem; box-shadow: 0 10px 25px -10px rgba(2, 6, 23, .25); padding:1.25rem; display:flex; align-items:center; gap:1rem; }
+.stat-card .stat-title { opacity:.9; font-weight:500; }
+.stat-card .stat-value { font-size:1.75rem; font-weight:800; }
+.stat-indigo { background: linear-gradient(135deg, #6366f1, #4f46e5, #4338ca); }
+.stat-emerald { background: linear-gradient(135deg, #10b981, #059669, #047857); }
+.stat-amber { background: linear-gradient(135deg, #f59e0b, #d97706, #b45309); }
+
+/* Dropzone */
+.dropzone { border:2px dashed #e5e7eb; border-radius:1rem; padding:1rem; text-align:center; transition: all .2s ease; }
+.dropzone:hover { border-color: var(--brand); background:#f5f7ff; }
+.dropzone.active { border-color: var(--brand); background:#eef2ff; }
+
+/* Animasi masuk */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Enhanced Stat Cards */
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px -10px rgba(2, 6, 23, .25);
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.stat-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+}
+
+/* Stat card variants - override previous simpler versions */
+.stat-indigo { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+.stat-emerald { background: linear-gradient(135deg, #10b981, #34d399); }
+.stat-amber { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+
+/* Enhanced buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  color: white;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #4338ca, #7e22ce);
+  transform: translateY(-3px);
+}
+.btn-outline {
+  border: 2px solid #6366f1;
+  color: #4f46e5;
+  background: white;
+  transition: all 0.3s ease;
+}
+.btn-outline:hover {
+  background: #eef2ff;
+  border-color: #4338ca;
+  color: #4338ca;
+}
+
+/* Enhanced card headers */
+.card-header--brand {
+  padding: 1rem 1.5rem;
+  background: linear-gradient(90deg, rgba(79, 70, 229, 0.1), rgba(147, 51, 234, 0.1));
+  border-bottom: 1px solid var(--border);
+}
+
+/* Enhanced table hover */
+.table tbody tr:hover td {
+  background: linear-gradient(90deg, #f0f9ff, #eef2ff);
+}
+
+/* Stat card text elements */
+.stat-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
